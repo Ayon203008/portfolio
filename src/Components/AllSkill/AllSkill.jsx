@@ -6,6 +6,8 @@ import { FaReact } from "react-icons/fa";
 import { FaSquareJs } from "react-icons/fa6";
 import { IoLogoCss3 } from "react-icons/io";
 import { RiTailwindCssFill } from "react-icons/ri";
+import { FaNodeJs } from "react-icons/fa";
+
 
 const skills = [
   {
@@ -25,8 +27,8 @@ const skills = [
     iconSize: 44,
   },
   {
-    Icon: IoLogoCss3,
-    title: "CSS",
+    Icon: FaNodeJs,
+    title: "NodeJs",
     borderColor: "border-blue-600",
     bgClass: "bg-gradient-to-r from-blue-700 to-indigo-700",
     shadowColor: "shadow-blue-600",

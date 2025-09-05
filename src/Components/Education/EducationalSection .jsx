@@ -1,7 +1,9 @@
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { motion } from "framer-motion";
-import "./Typewriter.css"; // Typewriter CSS
+import { MdSchool } from "react-icons/md"; // institution icon
+import { GiNotebook } from "react-icons/gi"; // details icon
+import "./Typewriter.css";
 
 const EducationalSection = () => {
   const education = [
@@ -45,7 +47,7 @@ const EducationalSection = () => {
   return (
     <div
       id="education"
-      className="relative py-12 sm:py-16 md:py-20 text-gray-300 
+      className="relative py-10 sm:py-14 md:py-20 text-gray-300 
                  bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 
                  rounded-2xl mx-3 sm:mx-6 md:mx-auto max-w-6xl"
       style={{
@@ -57,19 +59,20 @@ const EducationalSection = () => {
       }}
     >
       <motion.h2
-        className="relative text-3xl sm:text-4xl md:text-5xl font-extrabold 
-                   text-center mb-10 sm:mb-14 md:mb-16 tracking-wide 
-                   flex flex-wrap justify-center items-center gap-2 sm:gap-3"
+        className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
+                   font-extrabold text-center mb-10 sm:mb-14 md:mb-16 
+                   tracking-wide flex flex-wrap justify-center items-center gap-2 sm:gap-4"
         initial="hidden"
         animate="visible"
         variants={headingVariants}
       >
         <FaGraduationCap
-          size={50}
-          className="sm:size-60 md:size-80 text-cyan-500"
+          className="text-cyan-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
         />
-        <span className="typewriter-text text-xl sm:text-2xl md:text-3xl lg:text-4xl"
-              style={{ color: "rgb(34, 139, 230)" }}>
+        <span
+          className="typewriter-text text-lg sm:text-2xl md:text-3xl lg:text-4xl"
+          style={{ color: "rgb(34, 139, 230)" }}
+        >
           Education
         </span>
       </motion.h2>
@@ -95,14 +98,16 @@ const EducationalSection = () => {
             }}
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white flex items-center gap-2">
+                <MdSchool className="text-cyan-400" />
                 {edu.degree}
               </h3>
-              <span className="text-xs sm:text-sm text-cyan-400 mt-2 sm:mt-0">
+              <span className="text-xs sm:text-sm md:text-base text-cyan-400 mt-2 sm:mt-0">
                 {edu.year}
               </span>
             </div>
-            <p className="text-sm sm:text-base text-orange-400 mt-1">
+            <p className="flex items-center gap-2 text-sm sm:text-base text-orange-400 mt-2">
+              <GiNotebook className="text-orange-300" />
               {edu.institution}
             </p>
             <p className="text-xs sm:text-sm md:text-base text-gray-400 mt-3">
