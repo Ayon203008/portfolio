@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div id="home" className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div
+      id="home"
+      className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+    >
       {/* Profile Picture with subtle shimmer */}
       <motion.div
         className="relative rounded-full overflow-hidden w-72 h-72 mb-12"
@@ -53,7 +56,9 @@ const Hero = () => {
         </h2>
 
         <p className="mt-6 text-lg md:text-xl max-w-xl mx-auto leading-relaxed text-gray-300">
-          Obsessed with MERN stack development, improving 1% every day. I believe in thinking differently and love taking on tough challenges. Passionate about delivering phenomenal websites to customers.
+          Obsessed with MERN stack development, improving 1% every day. I
+          believe in thinking differently and love taking on tough challenges.
+          Passionate about delivering phenomenal websites to customers.
         </p>
       </motion.div>
 
@@ -64,13 +69,14 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.5, duration: 0.7 }}
       >
-        
-        <button
-          className="btn rounded-3xl px-24 py-5 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 text-white font-semibold shadow-lg
-            hover:scale-105 hover:brightness-125 transition-transform duration-300 ease-in-out"
-        >
-          Resume
-        </button>
+        <a href="https://drive.google.com/file/d/173rn7AgMwNY3jR7bl3kHbhw7KI5hJTDB/view?usp=drive_link">
+          <button
+            className="btn rounded-3xl px-24 py-5 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 text-white font-semibold shadow-lg
+          hover:scale-105 hover:brightness-125 transition-transform duration-300 ease-in-out"
+          >
+            Resume
+          </button>
+        </a>
       </motion.div>
     </div>
   );
