@@ -87,13 +87,14 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="min-h-screen p-10 bg-gradient-to-br border-amber-600 border-2 from-gray-900 via-gray-800 to-gray-900"
+      className="min-h-screen px-4 sm:px-6 md:px-10 py-10 bg-gradient-to-br border-amber-600 border-2 from-gray-900 via-gray-800 to-gray-900"
     >
-      <h1 className="text-center text-7xl pt-10 font-extrabold mb-16 tracking-wider bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 bg-clip-text text-transparent">
+      <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-12 sm:mb-16 tracking-wider bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 bg-clip-text text-transparent">
         Projects
       </h1>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* Responsive grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {projectsData.map((project) => (
           <motion.div
             key={project.id}
@@ -102,33 +103,27 @@ const Projects = () => {
             whileHover="hover"
             animate="rest"
             onClick={() => openModal(project)}
-            className="
-              cursor-pointer rounded-3xl overflow-hidden
+            className="cursor-pointer rounded-3xl overflow-hidden
               bg-gradient-to-br from-[#121212] via-[#1c1c1c] to-[#181818]
-              border-amber-900 
-              shadow-lg shadow-black/60
+              border-amber-900 shadow-lg shadow-black/60
               backdrop-blur-lg bg-white/5
               hover:border-purple-500
               hover:shadow-[0_0_15px_rgb(139,92,246)]
-              transition
-              duration-500
-              ease-in-out
-              border-2
-            "
+              transition duration-500 ease-in-out border-2"
           >
             <img
               src={project.img}
               alt={project.title}
-              className="w-full h-56 object-cover rounded-t-3xl border-b border-gray-700"
+              className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-t-3xl border-b border-gray-700"
             />
-            <div className="p-6">
-              <h2 className="text-2xl font-extrabold text-purple-400 mb-3 tracking-wide">
+            <div className="p-4 sm:p-6">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-purple-400 mb-2 sm:mb-3 tracking-wide">
                 {project.title}
               </h2>
-              <p className="text-gray-300 text-sm mb-5 leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-5 leading-relaxed">
                 {project.description}
               </p>
-              <button className="px-6 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold tracking-wide shadow-lg hover:from-purple-700 hover:to-indigo-700 transition duration-300">
+              <button className="px-4 sm:px-6 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold tracking-wide shadow-lg hover:from-purple-700 hover:to-indigo-700 transition duration-300">
                 View More
               </button>
             </div>
@@ -140,7 +135,7 @@ const Projects = () => {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center p-6 z-50"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex justify-center items-center p-4 sm:p-6 z-50"
             variants={modalBackdrop}
             initial="hidden"
             animate="visible"
@@ -148,7 +143,7 @@ const Projects = () => {
             onClick={closeModal}
           >
             <motion.div
-              className="relative max-w-3xl w-full rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-white/20 shadow-xl p-8"
+              className="relative w-full max-w-lg sm:max-w-2xl md:max-w-3xl rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-white/20 shadow-xl p-4 sm:p-6 md:p-8"
               variants={modalContent}
               initial="hidden"
               animate="visible"
@@ -156,7 +151,7 @@ const Projects = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-6 text-3xl text-gray-400 hover:text-white"
+                className="absolute top-3 sm:top-4 right-4 text-2xl sm:text-3xl text-gray-400 hover:text-white"
                 onClick={closeModal}
                 aria-label="Close modal"
               >
@@ -165,29 +160,31 @@ const Projects = () => {
               <img
                 src={selectedProject.img}
                 alt={selectedProject.title}
-                className="rounded-2xl mb-6 object-cover max-h-80 w-full"
+                className="rounded-xl sm:rounded-2xl mb-4 sm:mb-6 object-cover max-h-60 sm:max-h-72 md:max-h-80 w-full"
               />
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
                 {selectedProject.title}
               </h2>
-              <p className="text-gray-300 mb-4">{selectedProject.moreDetails}</p>
-              <p className="text-sm text-gray-400 mb-2">
+              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
+                {selectedProject.moreDetails}
+              </p>
+              <p className="text-xs sm:text-sm text-gray-400 mb-2">
                 <span className="font-semibold text-purple-400">Challenges:</span>{" "}
                 {selectedProject.challenge}
               </p>
-              <p className="text-sm text-gray-400 mb-4">
+              <p className="text-xs sm:text-sm text-gray-400 mb-4">
                 <span className="font-semibold text-purple-400">Future Plans:</span>{" "}
                 {selectedProject.Futureplan}
               </p>
-              <p className="text-green-400 mb-6">
+              <p className="text-green-400 mb-4 sm:mb-6 text-sm sm:text-base">
                 <strong>Technology Used:</strong> {selectedProject.Tecnology}
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 <a
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-medium hover:from-green-600 hover:to-teal-600 transition"
+                  className="px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-medium hover:from-green-600 hover:to-teal-600 transition text-sm sm:text-base"
                 >
                   Visit Website
                 </a>
@@ -195,7 +192,7 @@ const Projects = () => {
                   href={selectedProject.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium hover:from-gray-700 hover:to-gray-800 transition"
+                  className="px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium hover:from-gray-700 hover:to-gray-800 transition text-sm sm:text-base"
                 >
                   GitHub Repo
                 </a>
